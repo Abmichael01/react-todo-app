@@ -8,7 +8,7 @@ function App() {
 
   useEffect(()=>{
     const fetchData = async () =>{
-      const response = await fetch('http://127.0.0.1:8000/api/task-list/')
+      const response = await fetch('https://todoappapi-8251b68d016a.herokuapp.com/api/task-list/')
       const data =  await response.json()
       setTasks(data)
       console.log(data)
@@ -18,7 +18,7 @@ function App() {
   }, [])
 
   const updatePage = async () =>{
-    const response = await fetch('http://127.0.0.1:8000/api/task-list/')
+    const response = await fetch('https://todoappapi-8251b68d016a.herokuapp.com/api/task-list/')
     const data =  await response.json()
     setTasks(data)
     console.log(data)
@@ -28,7 +28,7 @@ function App() {
     e.preventDefault()
     const title = document.getElementById('form').elements[0].value
     
-    const response = await fetch('http://127.0.0.1:8000/api/task-create/', {
+    const response = await fetch('https://todoappapi-8251b68d016a.herokuapp.com/api/task-create/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ function App() {
     const confirmDelete = confirm("Are you sure you want to delete this task? ")
 
     if(confirmDelete){
-      const response = await fetch(`http://127.0.0.1:8000/api/task-delete/${id}`, {
+      const response = await fetch(`https://todoappapi-8251b68d016a.herokuapp.com/api/task-delete/${id}`, {
         method: "DELETE",
         headers: {
           'Content-Type': 'application/json'
